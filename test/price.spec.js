@@ -11,11 +11,15 @@ describe('price controller', function() {
     price: "15.00"
   }, ];
   var averagePrice = 10;
+  var highestPricedListing = {
+    price: "15.00"
+  };
 
   it('should return a json object with the average price', function() {
-    // expect(priceController.getAveragePrice(dummyObject)).toBe({
-    //   average_price: averagePrice
-    // });
-    console.log(priceController.getAveragePrice);
+    expect(priceController.getAveragePrice(dummyObject)).toBe(averagePrice);
+  });
+
+  it('should return the listing with the highest price', function() {
+    expect(priceController.getHighestPricedListing(dummyObject)).toEqual(highestPricedListing);
   });
 });
