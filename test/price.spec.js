@@ -19,14 +19,14 @@ describe('price controller', function() {
   };
 
   it('should return a json object with the average price', function() {
-    expect(priceController.getAveragePrice(dummyObject)).toBe(averagePrice);
+    expect(getAveragePrice(dummyObject)).toBe(averagePrice);
   });
 
   it('should return the listing with the highest price', function() {
-    expect(priceController.getHighestPricedListing(dummyObject)).toEqual(highestPricedListing);
+    expect(getHighestPricedListing(dummyObject)).toEqual(highestPricedListing);
   });
 
   it('should return the listing with the lowest price', function() {
-    expect(priceController.getLowestPricedListing(dummyObject)).toEqual(lowestPricedListing);
+    expect(getLowestPricedListing(dummyObject)).toEqual(lowestPricedListing);
   });
 });

@@ -6,10 +6,10 @@ exports.request = function(req,res){
   returnObject.average_price = getAveragePrice(etsyData);
   returnObject.highest_price = getHighestPricedListing(etsyData);
   returnObject.lowest_price = getLowestPricedListing(etsyData);
-  return returnObject;
+  res.json(returnObject);
 };
 
-exports.getAveragePrice = function(json){
+getAveragePrice = function(json){
   var total = 0;
   for(i = 0; i < json.length; i++){
     total += parseInt(json[i].price);
@@ -17,20 +17,20 @@ exports.getAveragePrice = function(json){
   return total/json.length;
 };
 
-exports.getHighestPricedListing = function(json){
+getHighestPricedListing = function(json){
   sortArrayByPriceLowestToHighest(json);
   return json.pop();
 };
 
-exports.getLowestPricedListing = function(json){
+getLowestPricedListing = function(json){
   sortArrayByPriceLowestToHighest(json);
   return json[0];
 };
 
-function sortArrayByPriceLowestToHighest(array){
+sortArrayByPriceLowestToHighest = function(array){
   array.sort(function (a, b) {
     if (parseInt(a.price) > parseInt(b.price)) return 1;
     if (parseInt(a.price) < parseInt(b.price)) return -1;
     return 0;
   });
-}
+};
