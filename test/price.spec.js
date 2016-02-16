@@ -14,6 +14,9 @@ describe('price controller', function() {
   var highestPricedListing = {
     price: "15.00"
   };
+  var lowestPricedListing = {
+    price: "5.00"
+  };
 
   it('should return a json object with the average price', function() {
     expect(priceController.getAveragePrice(dummyObject)).toBe(averagePrice);
@@ -21,5 +24,9 @@ describe('price controller', function() {
 
   it('should return the listing with the highest price', function() {
     expect(priceController.getHighestPricedListing(dummyObject)).toEqual(highestPricedListing);
+  });
+
+  it('should return the listing with the lowest price', function() {
+    expect(priceController.getLowestPricedListing(dummyObject)).toEqual(lowestPricedListing);
   });
 });

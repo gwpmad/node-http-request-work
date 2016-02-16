@@ -18,12 +18,19 @@ exports.getAveragePrice = function(json){
 };
 
 exports.getHighestPricedListing = function(json){
-  json.sort(function (a, b) {
-    if (parseInt(a.price) > parseInt(b.price)) return 1;
-    if (parseInt(a.price) < parseInt(b.price)) return -1;
-    
-    return 0;
-  });
-
+  sortArrayByPriceLowestToHighest(json);
   return json.pop();
 };
+
+exports.getLowestPricedListing = function(json){
+  sortArrayByPriceLowestToHighest(json);
+  return json[0];
+};
+
+function sortArrayByPriceLowestToHighest(array){
+  array.sort(function (a, b) {
+    if (parseInt(a.price) > parseInt(b.price)) return 1;
+    if (parseInt(a.price) < parseInt(b.price)) return -1;
+    return 0;
+  });
+}
