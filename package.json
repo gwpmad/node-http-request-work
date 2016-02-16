@@ -1,0 +1,32 @@
+{
+  "name": "etsy-api",
+  "version": "1.0.0",
+  "description": "A research tool based on data from Etsy",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alaanzr/etsy-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alaanzr/etsy-api/issues"
+  },
+  "homepage": "https://github.com/Alaanzr/etsy-api#readme",
+  "devDependencies": {
+    "frisby": "^0.8.5",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.21",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-jasmine": "^0.3.7",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "phantomjs": "^2.1.3",
+    "phantomjs-prebuilt": "^2.1.4"
+  },
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
