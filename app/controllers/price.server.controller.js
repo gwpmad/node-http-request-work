@@ -1,20 +1,22 @@
 var apiCall = require('./apiCall.server.controller.js');
 
 exports.request = function(req, res) {
-  var returnObject = {};
-  var etsyData;
+  var returnObject = {},etsyData;
   apiCall(function(err, data) {
     if (err) {
       console.log(err);
     } else {
-      etsyData = data.results;
-      returnObject.average_price = getAveragePrice(etsyData);
-      returnObject.highest_priced_listing = getHighestPricedListing(etsyData);
-      returnObject.lowest_priced_listing = getLowestPricedListing(etsyData);
+      generateReturnObject(returnObject,data.results);
       res.json(returnObject);
       console.log(returnObject);
     }
   });
+};
+
+generateReturnObject = function(returnObject,json) {
+  returnObject.average_price = getAveragePrice(json);
+  returnObject.highest_priced_listing = getHighestPricedListing(json);
+  returnObject.lowest_priced_listing = getLowestPricedListing(json);
 };
 
 getAveragePrice = function(json) {
