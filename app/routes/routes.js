@@ -1,7 +1,11 @@
-var price = require('../controllers/price.server.controller.js');
+(function() {
+  var price = require('../controllers/price.server.controller.js');
+  var quantity = require('../controllers/quantity.server.controller.js');
 
-module.exports = function(app) {
+  module.exports = function(app) {
 
-  app.get('/price', price.request);
+    app.get('/price', price.request);
+    app.get('/quantity', quantity.request);
 
-};
+  };
+})();
