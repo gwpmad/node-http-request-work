@@ -1,23 +1,23 @@
 (function() {
-  var rewire = require('rewire');
-  var priceController = rewire('../app/controllers/price.server.controller.js');
-  var generateReturnObject = priceController.__get__('generateReturnObject');
+  var rewire = require('rewire'),
+    priceController = rewire('../app/controllers/price.server.controller.js'),
+    generateReturnObject = priceController.__get__('generateReturnObject');
 
   describe('price controller', function() {
     var dummyObject = [{
-      price: "5.00"
-    }, {
-      price: "10.00"
-    }, {
-      price: "15.00"
-    }, ];
-    var averagePrice = "10.00";
-    var highestPricedListing = {
-      price: "15.00"
-    };
-    var lowestPricedListing = {
-      price: "5.00"
-    };
+        price: "5.00"
+      }, {
+        price: "10.00"
+      }, {
+        price: "15.00"
+      }, ],
+      averagePrice = "10.00",
+      highestPricedListing = {
+        price: "15.00"
+      },
+      lowestPricedListing = {
+        price: "5.00"
+      };
 
     it('should return the average price', function() {
       expect(getAveragePrice(dummyObject)).toBe(averagePrice);

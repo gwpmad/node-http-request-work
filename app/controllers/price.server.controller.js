@@ -5,11 +5,10 @@
     var returnObject = {};
     apiCall(function(err, data) {
       if (err) {
-        console.log(err);
+        res.json({error: err});
       } else {
         generateReturnObject(returnObject, data.results);
         res.json(returnObject);
-        console.log(returnObject);
       }
     });
   };

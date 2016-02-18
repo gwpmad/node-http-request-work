@@ -1,6 +1,6 @@
 (function() {
-  var dotenv = require('dotenv').config();
-  var request = require('request'),
+  var dotenv = require('dotenv').config(),
+    request = require('request'),
     url = 'https://openapi.etsy.com/v2/listings/active?api_key=' + process.env.API_KEY;
 
   module.exports = function(callback) {
