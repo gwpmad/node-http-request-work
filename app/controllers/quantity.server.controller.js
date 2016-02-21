@@ -15,7 +15,6 @@
   };
 
   exports.generateReturnObject = function(returnObject, json) {
-    console.log('quantity generateReturnObject being called');
     sortArrayByQuantityLowestToHighest(json);
     returnObject.average_quantity = getAverageQuantity(json);
     returnObject.highest_quantity_listing = getHighestQuantityListing(json);

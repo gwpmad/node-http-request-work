@@ -3,7 +3,6 @@
     self = module.exports;
 
   exports.request = function(req, res) {
-    console.log('price request called');
     var returnObject = {};
     apiCall(function(err, data) {
       if (err) {
@@ -11,7 +10,6 @@
           error: err
         });
       } else {
-        console.log('else part of apiCall callback being called');
         self.generateReturnObject(returnObject, data.results);
         res.json(returnObject);
       }

@@ -19,7 +19,6 @@
   };
 
   exports.generateReturnObject = function(returnObject, json) {
-    console.log('price bluebird generateReturnObject being called');
     sortArrayByPriceLowestToHighest(json);
     returnObject.average_price = getAveragePrice(json);
     returnObject.highest_priced_listing = getHighestPricedListing(json);

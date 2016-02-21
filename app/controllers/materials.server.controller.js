@@ -21,7 +21,6 @@
   };
 
   exports.generateReturnObject = function(returnObject, json) {
-    console.log('materials generateReturnObject being called');
     populateMaterialQuantitiesObject(json);
     topFiveMaterials = populateArrayWithTopFiveMaterials(materialQuantities);
     populateListingsJSON(listingsJSON, json, topFiveMaterials, materialQuantities);
