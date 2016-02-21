@@ -14,6 +14,7 @@
         });
       } else {
         generateReturnObject(returnObject, data.results);
+        console.log(listingsJSON);
         res.json(returnObject);
       }
     });
