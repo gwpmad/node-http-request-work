@@ -1,6 +1,8 @@
 (function() {
-  var rewire = require('rewire'),
-    materialsController = rewire('../app/controllers/materials.server.controller.js');
+  // var rewire = require('rewire'),
+  //   materialsController = rewire('../app/controllers/materials.server.controller.js');
+
+  var materialsController = require('../app/controllers/materials.server.controller.js');
 
   describe('materials controller', function() {
     var dummyObject = [{
@@ -92,7 +94,7 @@
       });
 
       it('should call all the relevant methods when creating the return object', function() {
-        generateReturnObject(dummyObject);
+        materialsController.generateReturnObject({},dummyObject);
         expect(populateMaterialQuantitiesObject).toHaveBeenCalledWith(dummyObject);
         expect(populateArrayWithTopFiveMaterials).toHaveBeenCalled();
         expect(populateListingsJSON).toHaveBeenCalled();

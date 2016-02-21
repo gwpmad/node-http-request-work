@@ -1,7 +1,9 @@
 (function() {
-  var rewire = require('rewire'),
-    priceController = rewire('../app/controllers/price.server.controller.js'),
-    generateReturnObject = priceController.__get__('generateReturnObject');
+  // var rewire = require('rewire'),
+  //   priceController = rewire('../app/controllers/price.server.controller.js'),
+  //   generateReturnObject = priceController.__get__('generateReturnObject');
+
+  var priceController = require('../app/controllers/price.server.controller.js');
 
   describe('price controller', function() {
     var dummyObject = [{
@@ -40,7 +42,7 @@
       });
 
       it('should call all the relevant methods when creating the return object', function() {
-        generateReturnObject({}, dummyObject);
+        priceController.generateReturnObject({}, dummyObject);
         expect(sortArrayByPriceLowestToHighest).toHaveBeenCalledWith(dummyObject);
         expect(getAveragePrice).toHaveBeenCalledWith(dummyObject);
         expect(getHighestPricedListing).toHaveBeenCalledWith(dummyObject);

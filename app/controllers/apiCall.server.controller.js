@@ -7,7 +7,7 @@
     var args = arguments;
     request(url, function(error, response, body) {
       if (!error && response.statusCode === 200) {
-        args[args.length - 1](null, JSON.parse(body));
+        args[args.length - 1](error, JSON.parse(body));
       } else {
         console.log(error);
       }

@@ -1,8 +1,10 @@
 (function() {
   var Promise = require('bluebird'),
-    apiCall = Promise.promisify(require('./apiCallBluebird.server.controller.js')),
+    apiCall = Promise.promisify(require('./apiCall.server.controller.js')),
     //rules for promisifying a function here: http://stackoverflow.com/a/29596768
     self = module.exports;
+
+    console.log(apiCall.toString());
 
   exports.request = function(req, res) {
     var returnObject = {};

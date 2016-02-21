@@ -1,7 +1,9 @@
 (function() {
-  var rewire = require('rewire');
-  var quantityController = rewire('../app/controllers/quantity.server.controller.js');
-  var generateReturnObject = quantityController.__get__('generateReturnObject');
+  // var rewire = require('rewire');
+  // var quantityController = rewire('../app/controllers/quantity.server.controller.js');
+  // var generateReturnObject = quantityController.__get__('generateReturnObject');
+
+  var quantityController = require('../app/controllers/quantity.server.controller.js');
 
   describe('quantity controller', function() {
     var dummyObject = [{
@@ -40,7 +42,7 @@
       });
 
       it('should call all the relevant methods when creating the return object', function() {
-        generateReturnObject({}, dummyObject);
+        quantityController.generateReturnObject({}, dummyObject);
         expect(sortArrayByQuantityLowestToHighest).toHaveBeenCalledWith(dummyObject);
         expect(getAverageQuantity).toHaveBeenCalledWith(dummyObject);
         expect(getHighestQuantityListing).toHaveBeenCalledWith(dummyObject);
