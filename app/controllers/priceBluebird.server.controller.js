@@ -1,12 +1,13 @@
 (function() {
-  var Promise = require('bluebird');
-  var apiCall = Promise.promisify(require('./apiCallBluebird.server.controller.js'));
-  //rules for promisifying a function here: http://stackoverflow.com/a/29596768
+  var Promise = require('bluebird'),
+    apiCall = Promise.promisify(require('./apiCallBluebird.server.controller.js')),
+    //rules for promisifying a function here: http://stackoverflow.com/a/29596768
+    self = module.exports;
 
   exports.request = function(req, res) {
     var returnObject = {};
     apiCall().then(function(data) {
-      generateReturnObject(returnObject, data.results);
+      self.generateReturnObject(returnObject, data.results);
       res.json(returnObject);
     }).catch(SyntaxError, function(err) {
       res.json({
@@ -17,7 +18,8 @@
     });
   };
 
-  generateReturnObject = function(returnObject, json) {
+  exports.generateReturnObject = function(returnObject, json) {
+    console.log('price bluebird generateReturnObject being called');
     sortArrayByPriceLowestToHighest(json);
     returnObject.average_price = getAveragePrice(json);
     returnObject.highest_priced_listing = getHighestPricedListing(json);

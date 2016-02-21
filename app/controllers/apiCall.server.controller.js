@@ -4,6 +4,7 @@
     url = 'https://openapi.etsy.com/v2/listings/active?api_key=' + process.env.API_KEY;
 
   module.exports = function(callback) {
+    console.log('apiCall normal exports being called');
     request(url, function(error, response, body) {
       if (!error && response.statusCode === 200) {
         callback(null, JSON.parse(body));

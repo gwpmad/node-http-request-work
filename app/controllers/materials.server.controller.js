@@ -2,8 +2,9 @@
   var apiCall = require('./apiCall.server.controller.js'),
     materialQuantities = {},
     topFiveMaterials = [],
-    listingsJSON = [];
-  returnObject = {};
+    listingsJSON = [],
+    returnObject = {},
+    self = module.exports;
 
   exports.request = function(req, res) {
     var returnObject = {};
@@ -13,14 +14,14 @@
           error: err
         });
       } else {
-        generateReturnObject(returnObject, data.results);
-        console.log(listingsJSON);
+        self.generateReturnObject(returnObject, data.results);
         res.json(returnObject);
       }
     });
   };
 
-  generateReturnObject = function(returnObject, json) {
+  exports.generateReturnObject = function(returnObject, json) {
+    console.log('materials generateReturnObject being called');
     populateMaterialQuantitiesObject(json);
     topFiveMaterials = populateArrayWithTopFiveMaterials(materialQuantities);
     populateListingsJSON(listingsJSON, json, topFiveMaterials, materialQuantities);

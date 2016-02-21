@@ -5,11 +5,9 @@
   var priceBluebird = require('../controllers/priceBluebird.server.controller.js');
 
   module.exports = function(app) {
-
     app.get('/price', price.request);
     app.get('/quantity', quantity.request);
     app.get('/materials', materials.request);
     app.get('/price-bluebird', priceBluebird.request);
-
   };
 })();

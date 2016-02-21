@@ -1,19 +1,25 @@
 (function() {
-  var apiCall = require('./apiCall.server.controller.js');
+  var apiCall = require('./apiCall.server.controller.js'),
+    self = module.exports;
 
   exports.request = function(req, res) {
+    console.log('price request called');
     var returnObject = {};
     apiCall(function(err, data) {
       if (err) {
-        res.json({error: err});
+        res.json({
+          error: err
+        });
       } else {
-        generateReturnObject(returnObject, data.results);
+        console.log('else part of apiCall callback being called');
+        self.generateReturnObject(returnObject, data.results);
         res.json(returnObject);
       }
     });
   };
 
-  generateReturnObject = function(returnObject, json) {
+  exports.generateReturnObject = function(returnObject, json) {
+    console.log('price generateReturnObject being called');
     sortArrayByPriceLowestToHighest(json);
     returnObject.average_price = getAveragePrice(json);
     returnObject.highest_priced_listing = getHighestPricedListing(json);

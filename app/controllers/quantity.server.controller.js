@@ -1,5 +1,6 @@
 (function() {
-  var apiCall = require('./apiCall.server.controller.js');
+  var apiCall = require('./apiCall.server.controller.js'),
+  self = module.exports;
 
   exports.request = function(req, res) {
     var returnObject = {};
@@ -7,14 +8,14 @@
       if (err) {
         console.log(err);
       } else {
-        generateReturnObject(returnObject, data.results);
+        self.generateReturnObject(returnObject, data.results);
         res.json(returnObject);
-        console.log(returnObject);
       }
     });
   };
 
-  generateReturnObject = function(returnObject, json) {
+  exports.generateReturnObject = function(returnObject, json) {
+    console.log('quantity generateReturnObject being called');
     sortArrayByQuantityLowestToHighest(json);
     returnObject.average_quantity = getAverageQuantity(json);
     returnObject.highest_quantity_listing = getHighestQuantityListing(json);
