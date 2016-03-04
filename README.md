@@ -1,7 +1,7 @@
 A research tool based on data from Etsy
 ==========
 
-Etsy is a peer-to-peer marketplace for vintage and handmade goods. An experimental work in progress on my part, this back-end application uses Express routing to display custom JSON data on Etsy's latest 25 listings at various endpoints.
+Etsy is a peer-to-peer marketplace for vintage and handmade goods. An experimental work in progress on my part, this back-end application uses Express routing to display custom JSON data about Etsy's latest 25 listings at various GET routes.
 
 Here are the user stories it currently follows:
 
@@ -22,7 +22,7 @@ Technologies Used
 * [Request](https://www.npmjs.com/package/request), an npm package that makes the call to Etsy's application
 * [Bluebird](https://github.com/petkaantonov/bluebird), an npm package that converts callback-utilising functions in Node into ones that return promises
 * [Compression](https://www.npmjs.com/package/compression), an npm package for compressing data
-* Node-Jasmine for unit testing
+* Jasmine-Node for unit testing
 
 How to use
 ------
