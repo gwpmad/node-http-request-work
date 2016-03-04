@@ -4,8 +4,6 @@
     //rules for promisifying a function here: http://stackoverflow.com/a/29596768
     self = module.exports;
 
-    console.log(apiCall.toString());
-
   exports.request = function(req, res) {
     var returnObject = {};
     apiCall().then(function(data) {
